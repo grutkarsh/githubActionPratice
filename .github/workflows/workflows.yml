@@ -1,0 +1,15 @@
+name: mywf
+on:
+  issues:
+    types: [opened, edited, milestoned]
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: echo "ok"
+      - name: context
+        run: echo "${{toJSON(github)}}"
+      - name: Get code
+        uses: actions/checkout@v3
